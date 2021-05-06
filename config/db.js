@@ -3,7 +3,7 @@ const  mongoose = require("mongoose");
 const password = process.env.PASSWORD;
 console.log("here",password)
 //Assign MongoDB connection string to Uri and declare options settings
-var  uri = `mongodb+srv://testuser:${password}@cluster0.z9lxw.mongodb.net/test?retryWrites=true&w=majority`
+//var  uri = `mongodb+srv://testuser:${password}@cluster0.z9lxw.mongodb.net/test?retryWrites=true&w=majority`
 // Declare a variable named option and assign optional settings
 const  options = {
 useNewUrlParser:  true,

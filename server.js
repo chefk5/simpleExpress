@@ -1,30 +1,15 @@
-'use strict'
+const express = require('express');
 
-// require express and bodyParser
-const  express = require("express");
-const  bodyParser = require("body-parser");
-require('dotenv').config()
-
-require("./config/db"); 
-
-
-// create express app
 const app = express();
 
-// define port to run express app
-const  port = process.env.PORT || 3000;
+app.get('/', (req, res) => res.send('Home Page Route'));
 
-// use bodyParser middleware on express app
-app.use(bodyParser.urlencoded({ extended:true }));
-app.use(bodyParser.json());
+app.get('/about', (req, res) => res.send('About Page Route'));
 
-// Add endpoint
-app.get('/', (req, res) => {
-res.send("Hello World");
-});
-var routes = require('./api/routes/todoRoutes'); //importing route
-routes(app);
-// Listen to server
-app.listen(port, () => {
-console.log(`Server running at http://localhost:${port}`);
-});
+app.get('/portfolio', (req, res) => res.send('Portfolio Page Route'));
+
+app.get('/contact', (req, res) => res.send('Contact Page Route'));
+
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => console.log(`Server running on ${port}, http://localhost:${port}`));
