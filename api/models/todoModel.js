@@ -7,12 +7,12 @@
 
 // Create Schema Instance and add schema propertise
     const TodoSchema = new Schema({
-        type: {
+        note: {
             type:String,
             required:true
         },
-        amount:{
-            type:Number,
+        author:{
+            type:String,
             required:true
         },
         createdOn: {
