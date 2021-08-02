@@ -19,9 +19,9 @@ app.use(bodyParser.urlencoded({ extended:true }));
 app.use(bodyParser.json());
 
 // Add endpoint
-app.get('/', (req, res) => {
-res.send("Hello World");
-});
+// app.get('/', (req, res) => {
+// res.send("Hello World");
+// });
 var routes = require('./api/routes/todoRoutes'); //importing route
 routes(app);
 // Listen to server
