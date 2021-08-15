@@ -4,7 +4,7 @@ const  Todo = require("../models/todoModel");
 // DEFINE CONTROLLER FUNCTIONS
 
 // listAllTodos function - To list all todos
-exports.listAllTodos = (req, res) => {
+exports.listAllTodos = (res) => {
 Todo.find({}, (err, todo) => {
 if (err) {
 res.status(500).send(err);
@@ -14,6 +14,7 @@ else if (todo.length == 0){
 }
 else{
     res.status(200).json(todo);
+    console.log("🚀 ~ file: todoController.js ~ line 17 ~ Todo.find ~ todo", todo)
 }
 });
 };
@@ -48,3 +49,26 @@ return res.status(404).send(err);
 res.status(200).json({ message:"Todo successfully deleted"});
 });
 };
+
+exports.getTodoWithPagination = async (req, res) => {
+    const count = +req.query.count;
+    const page = +req.query.page;
+    try {
+        const response = await Todo.find().skip(count * (page - 1)).limit(count)
+        res.status(200).json({response })
+    } catch (err) {
+        console.log(err)
+    }
+  }
+
+
+
+    
+    
+//     try{
+//       const response = await Games.find().skip(count * (page - 1)).limit(count)
+//       res.status(200).json({games: response})
+//     }catch(err){
+//       console.log(err)
+//     }
+//   }

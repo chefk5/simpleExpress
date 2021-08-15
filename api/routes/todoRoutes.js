@@ -17,4 +17,11 @@
         .route("/todo/:id")
         .put(todoList.updateTodo)
         .delete(todoList.deleteTodo);
+
+        app
+        .route("/notes")
+        .get(todoList.getTodoWithPagination)
     };
+
+ //pagination
+

@@ -1,7 +1,6 @@
-'use strict';
 // Import mongoose
     const mongoose = require("mongoose");
-
+    mongoose.set('debug', true)
 // Declare schema and assign Schema class
     const Schema = mongoose.Schema;
 
